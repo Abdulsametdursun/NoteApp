@@ -9,7 +9,7 @@ import { useUser } from '@clerk/nextjs';
 import { collectionGroup, DocumentData, query, where } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { useEffect, useState } from 'react';
-import SidebarOption from './ui/SidebarOption';
+import SidebarOption from './SidebarOption';
 
 interface RoomDocument extends DocumentData {
   createdAt: string;
@@ -93,7 +93,7 @@ function Sidebar() {
     </>
   );
   return (
-    <div className='p-2 md:p-5 bg-gray-200 relative'>
+    <div className='p-2 md:p-5 relative bg-background text-white'>
       <div className='md:hidden'>
         <Sheet>
           <SheetTrigger>
