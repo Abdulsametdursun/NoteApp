@@ -14,8 +14,8 @@ function NewDocumentButton() {
     if (!user?.emailAddresses?.[0]?.emailAddress) return;
 
     startTransition(async () => {
-      const { docId } = await createNewDocument(user.emailAddresses[0].emailAddress);
-      router.push(`/doc/${docId}`);
+      const { roomId } = await createNewDocument(user.emailAddresses[0].emailAddress);
+      router.push(`/doc/${roomId}`);
     });
   };
 
