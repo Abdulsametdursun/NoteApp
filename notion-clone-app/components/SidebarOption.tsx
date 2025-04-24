@@ -16,11 +16,15 @@ function SidebarOption({ href, id }: { href: string; id: string }) {
   return (
     <Link
       href={href}
-      className={`relative border p-2 rounded-md ${
-        isActive ? 'bg-gray-300 font-bold border-black' : 'border-gray-400'
-      }`}
+      style={{
+        backgroundColor: isActive ? 'var(--card)' : 'var(--input)',
+        color: 'var(--foreground)',
+        borderColor: 'var(--border)',
+        fontWeight: isActive ? 'bold' : 'normal',
+      }}
+      className='relative border p-2 rounded-md truncate'
     >
-      <p className='truncate'>{data.title}</p>
+      {data.title}
     </Link>
   );
 }

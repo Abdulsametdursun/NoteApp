@@ -6,7 +6,7 @@ export default async function DocLayout(props: {
   children: React.ReactNode;
   params: { id: string };
 }) {
-  const id = (await props.params).id; // ✅ await the params
+  const id = (await props.params).id;
 
   const { userId } = await auth();
   if (!userId) redirect('/sign-in');

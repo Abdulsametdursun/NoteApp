@@ -21,11 +21,9 @@ function Breadcrumbs() {
         <BreadcrumbItem>
           <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
-        {segments.map((segment, index) => {
-          if (!segment) return null;
-
-          const href = `/${segments.slice(0, index + 1).join('/')}`;
-          const isLast = index === segments.length - 1;
+        {segments.filter(Boolean).map((segment, index, cleaned) => {
+          const href = '/' + cleaned.slice(0, index + 1).join('/');
+          const isLast = index === cleaned.length - 1;
 
           return (
             <Fragment key={segment}>
