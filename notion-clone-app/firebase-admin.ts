@@ -1,13 +1,12 @@
 import { initializeApp, getApps, App, getApp, cert } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
-
-const serviceKey = require('@/service_key.json');
+import serviceAccount from './service_key.json'; // or '@/service_key.json' if alias works
 
 let app: App;
 
-if (getApps().length === 0) {
+if (!getApps().length) {
   app = initializeApp({
-    credential: cert(serviceKey),
+    credential: cert(serviceAccount as any),
   });
 } else {
   app = getApp();
